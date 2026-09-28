@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My profile</title>
+        <link rel="stylesheet" href="Style.css">
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        >
+
+    </head>
+    <body>
+        <!-- <script src="script.js"></script> -->
+        <section class="hero">
+            <header id="navbar">
+                <h2>Syndicate</h2>
+                <nav>
+                    <ul>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="hero-content">
+                <p class="hero-label">HELLO, I'M LINDOKUHLE 👋</p>
+                <h1>Lindokuhle Mondli Mabena</h1>
+                <h3>Junior Software Developer</h3>
+                <p>
+                    I am a passionate and motivated junior developer who enjoys building clean,
+                    user-friendly digital experiences. I love learning new technologies, solving
+                    problems, and turning ideas into practical solutions.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+
+            </div>
+        </section>
+        <section class="intro">
+            <div class="intro-content">
+                <h2 class="intro-label">Before we start, allow me to introduce myself</h2>
+                <p>
+                    I am Lindokuhle Mondli Mabena, a junior software developer and a graduate of Rosebank College.
+                    I describe myself as a passionate and motivated individual who enjoys building clean, user-friendly digital experiences. And with <br>
+                    the being said i will be showcasing my skills and pri=ojects in this profile, and i hoe you will enjoy the view.
+                </p>
+                <h3>My interests</h3>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Mobile App Development</li>
+                    <li>UI/UX Design</li>
+                    <li>Problem Solving</li>
+                </ul>
+                <h3>Technologies</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Node.js</li>
+                    <li>Kotlin</li>
+                    <li>C#</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                </ul>
+                <ul>
+                    <li>Visual Studio 2026</li>
+                    <li>Visual Studio Code</li>
+                    <li>XAMPP</li>
+                    <li>MySQL</li>
+                    <li>SQL Developer</li>
+                    <li>Android Studio</li>
+                </ul>
+                <p>What kind of a developer am I? I am not sure yet but I am eager to learn more of backend development.<br>
+                    I am also a team player and I am always willing to learn from others and share my
+                    thoughts.</p>
+            </div>
+        </section>
+        
+        <section class="projects" id="projects">
+            <div class="projects-content">
+
+                <h2 class="projects-label">## Projects</h2>
+
+                <div class="project-list">
+
+                    <div class="project-item">
+                        <h3>Project 1</h3>
+                        <p>
+                            A web development project showcasing my HTML and CSS skills.
+                        </p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>Project 2</h3>
+                        <p>
+                            A software development project focused on solving a real-world problem.
+                        </p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>My Profile Website</h3>
+                        <p>
+                            I am currently building this personal developer portfolio
+                            using HTML, CSS and JavaScript.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="comment-section">
+                    <h3>What do you think about my projects?</h3>
+
+                    <form action="#" method="post" id="commentForm">
+                        <p class="message" id="message"> </p>
+                        <label for="comment">Leave a comment:</label>
+
+                        <textarea
+                            id="commentinput"
+                            name="comment"
+                            rows="4"
+                        
+                        ></textarea>
+
+                        <button type="submit">Submit Comment</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact-content">
+                <h2 class="contact-label">## Contact Me</h2>
+                <form action="#" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="share">
+                <a href="#" class="x">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="#" class="li">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="gt">
+                    <i class="fa-brands fa-github"></i>
+                </a>    
+                <a href="#" class="fb">
+                    <i class="fa-brands fa-facebook-f"></i> 
+                </a>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2024 Lindokuhle Mondli Mabena. All rights reserved.</p>
+        </footer>
+
+        <script>
+            const message = document.getElementById("message");
+            const commentInput = document.getElementById("commentinput");
+            const commentForm = document.getElementById("commentForm");
+
+            commentForm.addEventListener("submit", function (event) {
+                //Prevevt the form
+                event.preventDefault();
+                if (commentInput.value === "") {
+                    message.textContent = "Please enter a comment.";
+                    message.style.color = "red";
+                    return;
+                }else{
+                    // Display the comment
+                    message.textContent = "Thank you for your comment!";
+                    message.style.color = "green";
+                }
+
+                // // Clear the input field
+                // commentInput.value = "";
+            })
+            let lastScrollTop = 0;
+                const navbar = document.getElementById("navbar");
+
+                window.addEventListener("scroll", function () {
+
+                    let currentScroll = window.pageYOffset ||
+                                        document.documentElement.scrollTop;
+
+                    if (currentScroll > lastScrollTop) {
+                        // Scrolling down
+                        navbar.classList.add("nav-hidden");
+                    } else {
+                        // Scrolling up
+                        navbar.classList.remove("nav-hidden");
+                    }
+
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                });
+        </script>
+
+    </body>
+</html>
