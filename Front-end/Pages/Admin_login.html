@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        .admin-login {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #f0f0f0;
+            border-radius: 5px;
+            background-color: #e1ebe9;
+        }
+        .admin-login h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .admin-login form {
+            display: flex;
+            flex-direction: column;
+        }
+        .admin-login input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            
+        }
+        .admin-login input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        .admin-login button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .admin-login button:hover {
+            transition: background-color 0.3s ease;
+            background-color: #137018;
+        }
+        .admin-login p {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .admin-login a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .admin-login a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <section class="admin-login">
+        <h1>Admin Login</h1>
+        <form action="Admin_dashboard.html" method="post" id="loginForm">
+            <p id="message"></p>
+            <div>
+                <input type="email" id="email" name="email" placeholder="Email address" >
+            </div>
+            <div>
+                <input type="password" id="password" name="password" placeholder="Password" >
+            </div>
+            <button type="submit">Login</button>
+            <p>
+                Don't have an account? <a href="Admin_register.html">Register here</a>
+            </p>
+        </form>
+    </section>
+    <script>
+        // Add any JavaScript functionality here if needed
+        const loginForm = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const message = document.getElementById('message');
+
+        loginForm.addEventListener('submit', function(event){
+            // Prevent the default form submission
+            event.preventDefault();
+            if(emailInput.value === '' || passwordInput.value === ''){
+                message.textContent = 'Please fill in both fields.';
+                message.style.color = 'red';
+            } else {
+                // Here you can add your logic to handle the login, e.g., send a request to the server
+                message.textContent = 'Login successful!';
+                message.style.color = 'green';
+                // Optionally, redirect to another page
+                window.location.href = 'Dashboard.html'; 
+            }
+
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: block;
+        }
+        .admin-register {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #b1aeae;
+            border-radius: 40px;
+            background-color: #e1ebe9;
+        }
+        .admin-register h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 34px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            color: #2c79ac;
+            padding: 1px;
+        }
+        .admin-register form {
+            display: flex;
+            flex-direction: column;
+            background-color: #c9cecd;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        .admin-register input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #5e2323;
+            border-radius: 20px;
+            color: #1a1919;
+        }
+        .admin-register input:focus {
+            outline: none;
+            border-color: #4271f3;
+        }
+        .admin-register button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4271f3;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .admin-register button:hover {
+            transition: background-color 0.3s ease;
+            background-color: #2ba3e9;
+        }
+        .admin-register p {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .admin-register a {
+            color: #4271f3;
+            text-decoration: none;
+        }
+        .admin-register a:hover {
+            transition: color 0.3s ease;
+            text-decoration: underline;
+            background-color: #d9dddf;
+        }
+    </style>
+</head>
+<body>
+    <Section class="admin-register">
+        <h1>Admin Registration</h1>
+        <p id="message"></p>
+        <form action="/register" method="POST" id="registerForm">
+            
+            <input type="text" id="username" name="username" placeholder="Username" ><br><br>
+            
+            <input type="email" id="email" name="email" placeholder="Email" ><br><br>
+
+            <input type="password" id="password" name="password" placeholder="Password" ><br><br>
+
+            <input type="text" id="Confirm_password" name="Confirm_password" placeholder="Confirm Password" ><br><br>
+            <button type="submit">Register</button>
+            <p>
+                already have an account? <a href="Admin_login.html">Login here</a>
+            </p>
+        </form>
+
+    </Section>
+
+    <script>
+        // Add your JavaScript validation logic here if needed
+        const registerForm = document.getElementById('registerForm');
+        // Get the input fields
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('Confirm_password');
+        const message = document.getElementById('message');
+
+        registerForm.addEventListener('submit', function(event){
+            //to  prevent default form submission
+            event.preventDefault();
+            if(usernameInput.value.trim() === '' || emailInput.value.trim() === '' || passwordInput.value.trim() === '' || confirmPasswordInput.value.trim() === ''){
+                message.textContent = 'Please fill in all fields.';
+                message.style.color = 'red';
+            }else if(passwordInput.value !== confirmPasswordInput.value){
+                message.textContent = 'Passwords do not match.';
+                message.style.color = 'red';
+                return;
+            }else{
+                // Here you can add your logic to handle the registration, e.g., send a request to the server
+                message.textContent = 'Registration successful!';
+                message.style.color = 'green';
+                //redirect to another page admin page
+                window.location.href = 'Admin_login.html'; 
+            }
+        })
+    </script>
+</body>
+</html>
